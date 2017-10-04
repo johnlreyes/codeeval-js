@@ -41,10 +41,5 @@ var Code = function() {
 module.exports = Code;
 
 var fs = require("fs");
-var lineList = new Array();
-fs.readFileSync(process.argv[2]).toString().split('\n').forEach(function(line) {
-	if (line.trim() !== '') {
-		lineList.push(line.trim());
-	}
-});
+var lineList = fs.readFileSync(process.argv[2]).toString().match(/[^\r\n]+/g);
 console.log(new Code().execute(lineList));
