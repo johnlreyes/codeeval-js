@@ -1,0 +1,1 @@
+mocha $(find src/test -name '*Test.js')
